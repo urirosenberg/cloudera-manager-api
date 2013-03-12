@@ -46,10 +46,11 @@ public class Role {
   private final boolean configStale;
   private final HaStatus haStatus;
   private final String roleUrl;
+  private final RoleConfigGroupRef roleConfigGroupRef;
 
 
-  public Role(String name, RoleType type, HostRef hostRef) {
-    this(name, type, hostRef, null, null, null, null, false, null, null);
+public Role(String name, RoleType type, HostRef hostRef) {
+    this(name, type, hostRef, null, null, null, null, false, null, null, null);
   }
 
   @JsonCreator
@@ -62,7 +63,8 @@ public class Role {
               @JsonProperty("healthChecks") Set<HealthCheck> healthChecks,
               @JsonProperty("configStale") boolean configStale,
               @JsonProperty("haStatus") HaStatus haStatus,
-              @JsonProperty("roleUrl") String roleUrl) {
+              @JsonProperty("roleUrl") String roleUrl,
+              @JsonProperty("roleConfigGroupRef") RoleConfigGroupRef roleConfigGroupRef) {
     this.name = name;
     this.type = type;
     this.hostRef = hostRef;
@@ -73,7 +75,16 @@ public class Role {
     this.configStale = configStale;
     this.haStatus = haStatus;
     this.roleUrl = roleUrl;
+    this.roleConfigGroupRef = roleConfigGroupRef;
   }
+  
+  /**
+   * The name of the role config group, which uniquely identifies it in a CM installation. 
+   * @return
+   */
+  public RoleConfigGroupRef getRoleConfigGroupRef() {
+	return roleConfigGroupRef;
+}
 
   /**
    * The name of the role.

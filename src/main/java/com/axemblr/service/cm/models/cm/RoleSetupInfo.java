@@ -38,8 +38,9 @@ public class RoleSetupInfo extends Role {
                        @JsonProperty("configStale") boolean confgiStale,
                        @JsonProperty("haStatus") HaStatus haStatus,
                        @JsonProperty("roleUrl") String roleUrl,
-                       @JsonProperty("config") ConfigList config) {
-    super(name, type, hostRef, serviceRef, roleState, healthSummary, healthChecks, confgiStale, haStatus, roleUrl);
+                       @JsonProperty("config") ConfigList config,
+                       @JsonProperty("roleConfigGroupRef") RoleConfigGroupRef roleConfigGroupRef){
+    super(name, type, hostRef, serviceRef, roleState, healthSummary, healthChecks, confgiStale, haStatus, roleUrl, roleConfigGroupRef);
     this.config = config;
   }
 

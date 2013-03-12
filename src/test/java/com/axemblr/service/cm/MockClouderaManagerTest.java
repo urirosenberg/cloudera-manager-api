@@ -220,8 +220,8 @@ public class MockClouderaManagerTest extends SerializationTest {
     ClouderaManagerClient client = ClouderaManagerClient.withConnectionString(server.getUrl("/").toString()).build();
     RoleList createdRoles = client.clusters().getCluster("Cloudera 1 - CDH4").getService("my_hbase")
         .createRoles(new RoleList(Sets.newHashSet(
-            new Role("master1", RoleType.MASTER, new HostRef("localhost"), null, null, null, null, false, null, null),
-            new Role("rs1", RoleType.REGIONSERVER, new HostRef("localhost"), null, null, null, null, false, null, null)
+            new Role("master1", RoleType.MASTER, new HostRef("localhost"), null, null, null, null, false, null, null,null),
+            new Role("rs1", RoleType.REGIONSERVER, new HostRef("localhost"), null, null, null, null, false, null, null,null)
         )));
     assertEquals(2, createdRoles.getItems().size());
     final ServiceRef serviceRef = new ServiceRef("Cluster 1 - CDH4", "my_hbase");
