@@ -48,5 +48,13 @@ public enum ServiceType {
   /**
    * Available in: CDH4.
    */
-  YARN
+  YARN,
+  /**
+   * Available in: CDH4.
+   */
+  HIVE,
+  /**
+   * Available in: CDH4.
+   */
+  IMPALA
 }
